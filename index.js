@@ -9,7 +9,7 @@ const app = express().use(body_parser.json());
 // app.use(express.json());
 // app.use(express.urlencoded({extended: false}));
 
-app.use('/chat', require('./routes/chat'));
+app.use('/completion', require('./routes/completion'));
 
 app.get('/hello', async (req, res) => {
     res.status(200).json({

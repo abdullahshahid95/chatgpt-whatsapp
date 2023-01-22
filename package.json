@@ -1,5 +1,5 @@
 {
-  "name": "chatgpt-whatsapp",
+  "name": "openai-textcompletion-whatsapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

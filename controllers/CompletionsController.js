@@ -1,4 +1,4 @@
-const { getCompletion } = require("../api/chatgpt");
+const { getCompletion } = require("../api/completion");
 const { sendMessage } = require("../api/whatsapp");
 
 const { WHATSAPP_WEBHOOK_VERIFICATION_TOKEN } = process.env;
@@ -43,9 +43,9 @@ const receiveMessage = async (req, res) => {
       let from = body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
       let messageText = body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
 
-      const chatGptResponse = await getCompletion(messageText);
+      const completionesponse = await getCompletion(messageText);
 
-      await sendMessage(from, chatGptResponse.data.choices[0].text);
+      await sendMessage(from, completionesponse.data.choices[0].text);
     }
     res.sendStatus(200);
   } else {
